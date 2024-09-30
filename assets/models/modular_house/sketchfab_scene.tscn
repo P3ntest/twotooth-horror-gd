@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://deo5fhrq17b6"]
+
+[ext_resource type="PackedScene" uid="uid://d1mago1fqqtii" path="res://assets/models/modular_house/modular_kit_horror_house_104_pieces.glb" id="1_tospf"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_tospf")]

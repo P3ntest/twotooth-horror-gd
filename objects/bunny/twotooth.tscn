@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://cgf883n3q01hs"]
+
+[ext_resource type="Script" path="res://objects/bunny/twotooth.gd" id="1_ocs4t"]
+[ext_resource type="PackedScene" uid="uid://drai7i2v28lwm" path="res://objects/bunny/zweizahn.tscn" id="1_t7bgn"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_43ht3"]
+radius = 0.6
+height = 2.3
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7bsbh"]
+animation = &"Idle_001"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_bh6qp"]
+xfade_time = 0.2
+input_0/name = "Walk"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "Idle"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_nabon"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3x48h"]
+animation = &"Walk"
+use_custom_timeline = true
+timeline_length = 1.0
+stretch_time_scale = true
+start_offset = 0.0
+loop_mode = 1
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_vxlr2"]
+nodes/Idle_anim/node = SubResource("AnimationNodeAnimation_7bsbh")
+nodes/Idle_anim/position = Vector2(40, 240)
+nodes/Movement/node = SubResource("AnimationNodeTransition_bh6qp")
+nodes/Movement/position = Vector2(280, 120)
+nodes/WalkSpeed/node = SubResource("AnimationNodeTimeScale_nabon")
+nodes/WalkSpeed/position = Vector2(60, 70)
+nodes/Walk_anim/node = SubResource("AnimationNodeAnimation_3x48h")
+nodes/Walk_anim/position = Vector2(-130, 80)
+nodes/output/position = Vector2(678, 150)
+node_connections = [&"Movement", 0, &"WalkSpeed", &"Movement", 1, &"Idle_anim", &"WalkSpeed", 0, &"Walk_anim", &"output", 0, &"Movement"]
+
+[node name="TwoTooth" type="CharacterBody3D"]
+script = ExtResource("1_ocs4t")
+
+[node name="model" parent="." instance=ExtResource("1_t7bgn")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.0199942, -0.0109535, 0.226196)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.990497, 0, -0.137531, 0, 1, 0, 0.137531, 0, 0.990497, 0, 1.13075, 0.22157)
+shape = SubResource("CapsuleShape3D_43ht3")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../model")
+tree_root = SubResource("AnimationNodeBlendTree_vxlr2")
+anim_player = NodePath("../model/AnimationPlayer")
+parameters/Movement/current_state = "Idle"
+parameters/Movement/transition_request = ""
+parameters/Movement/current_index = 1
+parameters/WalkSpeed/scale = 1.0

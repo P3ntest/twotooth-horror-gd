@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuykgs3m3cjag"]
+
+[ext_resource type="Material" uid="uid://nfd1vfcqg5k4" path="res://assets/textures/wood_0061_1k_mxnaK8/wood.tres" id="1_ca142"]
+[ext_resource type="MeshLibrary" uid="uid://c3qubpq6h5xfd" path="res://assets/models/modular_house/house.tres" id="2_m2d4s"]
+
+[node name="House" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0924683, -0.0537996, 0.21167)
+use_collision = true
+size = Vector3(40, 0.037, 40)
+material = ExtResource("1_ca142")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("2_m2d4s")
+data = {
+"cells": PackedInt32Array(65535, 0, 907, 65535, 1, 907, 65534, 1, 907, 65533, 2, 646, 65534, 2, 646, 65534, 3, 646, 65534, 4, 646, 65535, 4, 646, 65534, 0, 907, 1, 65531, 646, 65533, 4, 646, 65533, 5, 646, 65534, 5, 646, 65534, 6, 646, 65535, 6, 646, 65535, 5, 646, 65533, 3, 646, 65533, 6, 646, 0, 0, 907, 0, 1, 907, 65535, 2, 907, 0, 2, 907, 0, 3, 907, 1, 3, 907, 1, 4, 907, 2, 3, 907, 1, 2, 907, 1, 0, 907, 65535, 65535, 907, 65534, 65535, 907, 2, 2, 907, 1, 1, 907, 19, 65528, 907, 18, 65528, 907, 17, 65528, 907, 16, 65528, 907, 14, 65528, 907, 13, 65528, 907, 12, 65528, 907, 11, 65529, 907, 10, 65529, 907, 9, 65529, 907, 9, 65530, 907, 9, 65531, 907, 10, 65533, 907, 11, 65535, 907, 13, 0, 907, 16, 2, 907, 18, 3, 907, 21, 5, 907, 23, 6, 907, 25, 6, 907, 27, 6, 907, 29, 4, 907, 29, 2, 907, 26, 65534, 907, 23, 65532, 907, 19, 65530, 907, 17, 65529, 907)
+}
