@@ -17,3 +17,9 @@ shape = SubResource("CapsuleShape3D_q74dn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.41702, 0)
 current = true
 fov = 60.0
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D"]
+light_energy = 4.0
+spot_range = 40.0
+spot_attenuation = 0.0
+spot_angle = 20.0

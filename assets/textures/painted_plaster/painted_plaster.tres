@@ -1,0 +1,21 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://beekjdwd7tdly"]
+
+[ext_resource type="Texture2D" uid="uid://jrgdkvka0awi" path="res://assets/textures/painted_plaster/painted_plaster_wall_diff_2k.jpg" id="1_w46gj"]
+[ext_resource type="Texture2D" uid="uid://jkh7o60taani" path="res://assets/textures/painted_plaster/painted_plaster_wall_arm_2k.jpg" id="2_fq43r"]
+[ext_resource type="Texture2D" uid="uid://b028wkpsrfss6" path="res://assets/textures/painted_plaster/painted_plaster_wall_nor_gl_2k.jpg" id="3_f8os8"]
+
+[resource]
+albedo_color = Color(0.73211, 0.821644, 0.908864, 1)
+albedo_texture = ExtResource("1_w46gj")
+metallic = 1.0
+metallic_texture = ExtResource("2_fq43r")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_fq43r")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_f8os8")
+ao_enabled = true
+ao_texture = ExtResource("2_fq43r")
+uv1_scale = Vector3(0.9, 0.9, 0.9)
+uv1_triplanar = true
+uv1_world_triplanar = true
